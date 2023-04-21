@@ -1,5 +1,4 @@
-{{-- <x-layout> --}}
-@extends('layout')
+@extends('components/layout')
 
 @section('content')
     @foreach ($posts as $post)
@@ -18,4 +17,5 @@
 
     @endforeach
 @endsection
-{{-- </x-layout> --}}
+
+

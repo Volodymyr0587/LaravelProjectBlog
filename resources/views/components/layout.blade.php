@@ -13,7 +13,6 @@
 
 <body>
     @yield('content')
-    {{-- {{ $slot }} --}}
 </body>
 
 </html>
