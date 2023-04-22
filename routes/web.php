@@ -24,6 +24,6 @@ Route::get('/', function () {
 Route::get('posts/{post}', function ($slug) {
     // Find a post by its slug and pass is to a view called "post"
     return view('post', [
-        'post' => Post::find($slug)
+        'post' => Post::findOrFail($slug)
     ]);
-})->where('post', '[A-z_\-]+'); //Обмеження підстановочних символів маршруту //->whereAlpha('post'); - replace regexp [A-z]. Means just lower or uppercase letters
+}); //->where('post', '[A-z_\-]+'); //Обмеження підстановочних символів маршруту //->whereAlpha('post'); - replace regexp [A-z]. Means just lower or uppercase letters
