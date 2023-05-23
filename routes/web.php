@@ -6,6 +6,20 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('ping', function () {
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us12'
+    ]);
+
+    $response = $mailchimp->lists->addListMember('d470d9238f', [
+        'email_address' => 'volodymyrhoncharov87@gmail.com',
+        'status' => 'subscribed'
+    ]);
+    ddd($response);
+});
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
